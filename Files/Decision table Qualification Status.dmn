@@ -69,522 +69,742 @@
     </informationRequirement>
     <decisionTable id="decisionTable" hitPolicy="FIRST">
       <input id="input1" label="Qualifikation" camunda:inputVariable="quali">
-        <inputExpression id="inputExpression1" typeRef="string">        <text>Quali</text>
-</inputExpression>
-        <inputValues id="UnaryTests_0myq2vr">        <text><![CDATA["Habilitation","Master","Lizentiat","Bachelor","Diplom","Andere","Law/Tax Expert","Doktorat"]]></text>
-</inputValues>
+        <inputExpression id="inputExpression1" typeRef="string">
+          <text>Quali</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0myq2vr">
+          <text><![CDATA["Habilitation","Master","Lizentiat","Bachelor","Diplom","Andere","Law/Tax Expert","Doktorat"]]></text>
+        </inputValues>
       </input>
       <input id="InputClause_0ndeppw" label="Scholarly Maint. Punkte" camunda:inputVariable="smaint">
-        <inputExpression id="LiteralExpression_1y1uziz" typeRef="integer">        <text>Smaint</text>
-</inputExpression>
+        <inputExpression id="LiteralExpression_1y1uziz" typeRef="integer">
+          <text>Smaint</text>
+        </inputExpression>
       </input>
       <input id="InputClause_1qqjc42" label="Practitioner Maint. Punkte" camunda:inputVariable="pmaint">
-        <inputExpression id="LiteralExpression_1e2sejn" typeRef="integer">        <text>Pmaint</text>
-</inputExpression>
+        <inputExpression id="LiteralExpression_1e2sejn" typeRef="integer">
+          <text>Pmaint</text>
+        </inputExpression>
       </input>
       <input id="InputClause_1tz2c3e" label="APRJ" camunda:inputVariable="aprj">
-        <inputExpression id="LiteralExpression_000svv7" typeRef="boolean">        <text>APRJ</text>
-</inputExpression>
+        <inputExpression id="LiteralExpression_000svv7" typeRef="boolean">
+          <text>APRJ</text>
+        </inputExpression>
       </input>
       <input id="InputClause_0jfuo3e" label="Doktorat &#62; 5Jahre" camunda:inputVariable="d5j">
-        <inputExpression id="LiteralExpression_10twxmv" typeRef="boolean">        <text>D5J</text>
-</inputExpression>
+        <inputExpression id="LiteralExpression_10twxmv" typeRef="boolean">
+          <text>D5J</text>
+        </inputExpression>
       </input>
       <input id="InputClause_1goitcn" label="Management Duties" camunda:inputVariable="mngduty">
-        <inputExpression id="LiteralExpression_1pxoqdm" typeRef="boolean">        <text>MngDuty</text>
-</inputExpression>
+        <inputExpression id="LiteralExpression_1pxoqdm" typeRef="boolean">
+          <text>MngDuty</text>
+        </inputExpression>
       </input>
       <input id="InputClause_1w3p466" label="Publikationenpunkte" camunda:inputVariable="pubp">
-        <inputExpression id="LiteralExpression_1mfi7kg" typeRef="integer">        <text>Pubp</text>
-</inputExpression>
+        <inputExpression id="LiteralExpression_1mfi7kg" typeRef="integer">
+          <text>Pubp</text>
+        </inputExpression>
       </input>
       <input id="InputClause_1j6j2wc" label="Sustainend Work Duties" camunda:inputVariable="SWD">
-        <inputExpression id="LiteralExpression_1p2h2tc" typeRef="boolean">        <text>SWD</text>
-</inputExpression>
+        <inputExpression id="LiteralExpression_1p2h2tc" typeRef="boolean">
+          <text>SWD</text>
+        </inputExpression>
       </input>
       <input id="InputClause_13ev340" label="Pensum" camunda:inputVariable="pensum">
-        <inputExpression id="LiteralExpression_09m3gds" typeRef="integer">        <text>Pensum</text>
-</inputExpression>
+        <inputExpression id="LiteralExpression_09m3gds" typeRef="integer">
+          <text>Pensum</text>
+        </inputExpression>
       </input>
       <input id="InputClause_01d0txv" label="Doktorand ABD" camunda:inputVariable="abd">
-        <inputExpression id="LiteralExpression_0netm59" typeRef="boolean">        <text>ABD</text>
-</inputExpression>
+        <inputExpression id="LiteralExpression_0netm59" typeRef="boolean">
+          <text>ABD</text>
+        </inputExpression>
       </input>
       <output id="output1" label="Laufender Status" name="e_LS_QS" typeRef="string" />
       <rule id="row-841221737-19">
         <description>ABD</description>
-        <inputEntry id="UnaryTests_1w3h109">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1wuw7n5">        <text>1</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1aty3vy">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_09vtu0g">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0x6763n">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0tiz45h">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_07a52jc">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1kdslov">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1ynht3d">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0eb28ry">        <text>true</text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_0kmiz8u">        <text><![CDATA["SA"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_1w3h109">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wuw7n5">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1aty3vy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09vtu0g">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x6763n">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tiz45h">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07a52jc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kdslov">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ynht3d">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0eb28ry">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kmiz8u">
+          <text><![CDATA["SA"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-1">
         <description><![CDATA[Pensum <50%]]></description>
-        <inputEntry id="UnaryTests_0qg5djw">        <text><![CDATA["Habilitation", "Law/Tax Expert", "Doktorat"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1g2a7jd">        <text><![CDATA[>= 3]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1e8f29p">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0jhl3a9">        <text>true</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0jkg2as">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1nuq675">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0skq423">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1oqh7la">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0bvmzst">        <text><![CDATA[<= 50]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0gtnc2p">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_0wro4wf">        <text><![CDATA["SA"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_0qg5djw">
+          <text><![CDATA["Habilitation", "Law/Tax Expert", "Doktorat"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1g2a7jd">
+          <text><![CDATA[>= 3]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e8f29p">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jhl3a9">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jkg2as">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nuq675">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0skq423">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oqh7la">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bvmzst">
+          <text><![CDATA[<= 50]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gtnc2p">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wro4wf">
+          <text><![CDATA["SA"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-2">
         <description><![CDATA[Pensum >51-80%]]></description>
-        <inputEntry id="UnaryTests_10c6k6b">        <text><![CDATA["Habilitation", "Law/Tax Expert", "Doktorat"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0byawij">        <text><![CDATA[>= 7]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_10gvl7t">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0i5w27n">        <text>true</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_04urz5n">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0q1gv4v">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_194xvxn">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0lxdt7z">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1oa0vqf">        <text>]51..80]</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0bs6ie8">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_0m29dw6">        <text><![CDATA["SA"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_10c6k6b">
+          <text><![CDATA["Habilitation", "Law/Tax Expert", "Doktorat"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0byawij">
+          <text><![CDATA[>= 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10gvl7t">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i5w27n">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04urz5n">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q1gv4v">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_194xvxn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lxdt7z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oa0vqf">
+          <text>]51..80]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bs6ie8">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0m29dw6">
+          <text><![CDATA["SA"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-4">
         <description><![CDATA[Pensum >81%]]></description>
-        <inputEntry id="UnaryTests_0nk8l0a">        <text><![CDATA["Habilitation", "Law/Tax Expert", "Doktorat"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_19sy3u9">        <text><![CDATA[>= 10]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0420ao0">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1ea57e4">        <text>true</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1hjhhzv">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0594vws">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1qn03iv">        <text><![CDATA[>= 7]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0icdp9h">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1t2huni">        <text><![CDATA[>= 81]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0s7qzjk">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_0ow67p8">        <text><![CDATA["SA"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_0nk8l0a">
+          <text><![CDATA["Habilitation", "Law/Tax Expert", "Doktorat"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19sy3u9">
+          <text><![CDATA[>= 10]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0420ao0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ea57e4">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hjhhzv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0594vws">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qn03iv">
+          <text><![CDATA[>= 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0icdp9h">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t2huni">
+          <text><![CDATA[>= 81]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0s7qzjk">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ow67p8">
+          <text><![CDATA["SA"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-3">
         <description><![CDATA[Doktorat > 5Jahre]]></description>
-        <inputEntry id="UnaryTests_1kikgvj">        <text><![CDATA["Doktorat"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0c9ociu">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0pl67up">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0weh8oj">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1o5kq2t">        <text>true</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_04mkd9a">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_10jajr0">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0lve11j">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_04s9w2v">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_11dftt5">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_13f31uw">        <text><![CDATA["SA"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_1kikgvj">
+          <text><![CDATA["Doktorat"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c9ociu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pl67up">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0weh8oj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o5kq2t">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04mkd9a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10jajr0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lve11j">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04s9w2v">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11dftt5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13f31uw">
+          <text><![CDATA["SA"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-5">
         <description><![CDATA[Pensum <50%]]></description>
-        <inputEntry id="UnaryTests_1hzcfjj">        <text><![CDATA["Master", "Lizentiat"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_01506cu">        <text><![CDATA[>= 3]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0yi4cgn">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0w1oon4">        <text>true</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1hs3626">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0ch7bhq">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0ko1yo7">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_17j32ip">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_011b32z">        <text><![CDATA[<= 50]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1nygkc5">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_15ps5ki">        <text><![CDATA["SP"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_1hzcfjj">
+          <text><![CDATA["Master", "Lizentiat"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01506cu">
+          <text><![CDATA[>= 3]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yi4cgn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w1oon4">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hs3626">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ch7bhq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ko1yo7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17j32ip">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_011b32z">
+          <text><![CDATA[<= 50]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nygkc5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15ps5ki">
+          <text><![CDATA["SP"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-6">
         <description><![CDATA[Pensum >51-80%]]></description>
-        <inputEntry id="UnaryTests_17nr5gx">        <text><![CDATA["Master", "Lizentiat"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1wq44w2">        <text><![CDATA[>= 7]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0272mhb">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0n3kqef">        <text>true</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0jlcfqn">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0q1weni">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1bny95h">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0mtsa5a">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0l3fmvd">        <text>]51..80]</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1vuihjv">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_1i9tnx3">        <text><![CDATA["SP"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_17nr5gx">
+          <text><![CDATA["Master", "Lizentiat"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wq44w2">
+          <text><![CDATA[>= 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0272mhb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n3kqef">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jlcfqn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q1weni">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bny95h">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mtsa5a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l3fmvd">
+          <text>]51..80]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vuihjv">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1i9tnx3">
+          <text><![CDATA["SP"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-7">
         <description><![CDATA[Pensum >81%]]></description>
-        <inputEntry id="UnaryTests_0moumnc">        <text><![CDATA["Master", "Lizentiat"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1i412np">        <text><![CDATA[>= 10]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0rix9uj">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0agd56p">        <text>true</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1hrs3kk">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0vb8lwi">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0tn9f9z">        <text><![CDATA[>= 7]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0fzknif">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1x0kma9">        <text><![CDATA[>= 81]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0iyorfn">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_1pjgtqu">        <text><![CDATA["SP"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_0moumnc">
+          <text><![CDATA["Master", "Lizentiat"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i412np">
+          <text><![CDATA[>= 10]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rix9uj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0agd56p">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hrs3kk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vb8lwi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tn9f9z">
+          <text><![CDATA[>= 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fzknif">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x0kma9">
+          <text><![CDATA[>= 81]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0iyorfn">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pjgtqu">
+          <text><![CDATA["SP"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-8">
         <description><![CDATA[Pensum <50%]]></description>
-        <inputEntry id="UnaryTests_0qvc73a">        <text><![CDATA["Habilitation", "Doktorat", "Law/Tax Expert"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1tnzqdl">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_05zouj0">        <text><![CDATA[>= 3]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0yql3u7">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_09r3clr">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_19oso2f">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0i5leeb">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_06v8ydd">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_17y642y">        <text><![CDATA[<= 50]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0eh86u7">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_17jf2cq">        <text><![CDATA["PA"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_0qvc73a">
+          <text><![CDATA["Habilitation", "Doktorat", "Law/Tax Expert"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tnzqdl">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05zouj0">
+          <text><![CDATA[>= 3]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yql3u7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09r3clr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19oso2f">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i5leeb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06v8ydd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17y642y">
+          <text><![CDATA[<= 50]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0eh86u7">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17jf2cq">
+          <text><![CDATA["PA"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-9">
         <description><![CDATA[Pensum >51-80%]]></description>
-        <inputEntry id="UnaryTests_0fwrh8x">        <text><![CDATA["Habilitation", "Doktorat", "Law/Tax Expert"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1kqho3l">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0vztma6">        <text><![CDATA[>= 5]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1903vf3">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1nanij8">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0ndls1e">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1vvj601">        <text><![CDATA[>= 2]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_09n1fki">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_134mes6">        <text>]51..80]</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1l1g5eh">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_1ka0guv">        <text><![CDATA["PA"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_0fwrh8x">
+          <text><![CDATA["Habilitation", "Doktorat", "Law/Tax Expert"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kqho3l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vztma6">
+          <text><![CDATA[>= 5]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1903vf3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nanij8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ndls1e">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vvj601">
+          <text><![CDATA[>= 2]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09n1fki">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_134mes6">
+          <text>]51..80]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1l1g5eh">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ka0guv">
+          <text><![CDATA["PA"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-10">
         <description><![CDATA[Pensum >81%]]></description>
-        <inputEntry id="UnaryTests_1fylcjt">        <text><![CDATA["Habilitation", "Doktorat", "Law/Tax Expert"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_01x4iaz">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1purshq">        <text><![CDATA[>= 7]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1gpouix">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1nmsd7l">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0ic1p1g">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0dsevge">        <text><![CDATA[>= 4]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0zgtlzu">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0681bxy">        <text><![CDATA[>= 81]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_096s01p">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_1aks7ng">        <text><![CDATA["PA"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_1fylcjt">
+          <text><![CDATA["Habilitation", "Doktorat", "Law/Tax Expert"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01x4iaz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1purshq">
+          <text><![CDATA[>= 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gpouix">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nmsd7l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ic1p1g">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dsevge">
+          <text><![CDATA[>= 4]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zgtlzu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0681bxy">
+          <text><![CDATA[>= 81]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_096s01p">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1aks7ng">
+          <text><![CDATA["PA"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-11">
         <description>Management Duties</description>
-        <inputEntry id="UnaryTests_03yrvt7">        <text><![CDATA["Habilitation", "Doktorat", "Law/Tax Expert"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1dtqlzv">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_110mqk8">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0p99cha">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1mjyajj">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1jcnbjt">        <text>true</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0ez1zlg">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1xdxfm0">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_17ltg3a">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1qpzj9v">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_0rwoxqs">        <text><![CDATA["PA"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_03yrvt7">
+          <text><![CDATA["Habilitation", "Doktorat", "Law/Tax Expert"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dtqlzv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_110mqk8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p99cha">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mjyajj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jcnbjt">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ez1zlg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xdxfm0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17ltg3a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qpzj9v">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0rwoxqs">
+          <text><![CDATA["PA"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-12">
         <description>Sustained Work Duties</description>
-        <inputEntry id="UnaryTests_0mgra16">        <text><![CDATA["Habilitation", "Doktorat", "Law/Tax Expert"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1xqrqo1">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1vmazqn">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1pcjjsh">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0i45fk6">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1r09fy4">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1sef56b">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0x04p0c">        <text>true</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0tllyiq">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1n3092w">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_140qide">        <text><![CDATA["PA"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_0mgra16">
+          <text><![CDATA["Habilitation", "Doktorat", "Law/Tax Expert"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xqrqo1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vmazqn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pcjjsh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i45fk6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r09fy4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sef56b">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x04p0c">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tllyiq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n3092w">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_140qide">
+          <text><![CDATA["PA"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-13">
         <description><![CDATA[Pensum <50%]]></description>
-        <inputEntry id="UnaryTests_1h3gtn8">        <text><![CDATA["Master", "Lizentiat"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_018cgte">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1i2w1e1">        <text><![CDATA[>= 3]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1ilzmpp">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0qdmelw">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0gjxhay">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0wjefgm">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0obzu6b">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1o61mgn">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1b243ye">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_1hpguq5">        <text><![CDATA["IP"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_1h3gtn8">
+          <text><![CDATA["Master", "Lizentiat"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_018cgte">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i2w1e1">
+          <text><![CDATA[>= 3]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ilzmpp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qdmelw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gjxhay">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wjefgm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0obzu6b">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o61mgn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b243ye">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hpguq5">
+          <text><![CDATA["IP"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-14">
         <description><![CDATA[Pensum >51-80%]]></description>
-        <inputEntry id="UnaryTests_0vcu373">        <text><![CDATA["Master", "Lizentiat"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_17hp170">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0royfly">        <text><![CDATA[>= 5]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_055qrmx">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1x1ad9x">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0uz8uxp">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1i5y5vu">        <text><![CDATA[>= 2]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_13livbu">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1ihe9fe">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1qwcipt">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_0fj09g5">        <text><![CDATA["IP"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_0vcu373">
+          <text><![CDATA["Master", "Lizentiat"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17hp170">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0royfly">
+          <text><![CDATA[>= 5]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_055qrmx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x1ad9x">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uz8uxp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i5y5vu">
+          <text><![CDATA[>= 2]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13livbu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ihe9fe">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qwcipt">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fj09g5">
+          <text><![CDATA["IP"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-15">
         <description><![CDATA[Pensum >81%]]></description>
-        <inputEntry id="UnaryTests_0cthpwv">        <text><![CDATA["Master", "Lizentiat"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0xasw5z">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_019mdhr">        <text><![CDATA[>= 7]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1pj2fo5">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_13d9m3l">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1sg63lp">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1xc2rl8">        <text><![CDATA[>= 4]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0pr6uhw">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0t1rtht">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0klqu72">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_11x5yt4">        <text><![CDATA["IP"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_0cthpwv">
+          <text><![CDATA["Master", "Lizentiat"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xasw5z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_019mdhr">
+          <text><![CDATA[>= 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pj2fo5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13d9m3l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sg63lp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xc2rl8">
+          <text><![CDATA[>= 4]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pr6uhw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t1rtht">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0klqu72">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11x5yt4">
+          <text><![CDATA["IP"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-16">
         <description>Management Duties</description>
-        <inputEntry id="UnaryTests_02nqahn">        <text><![CDATA["Master", "Lizentiat"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1iejcxt">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0bohzc2">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_164ypmy">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_194sv4c">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0gw0nhc">        <text>true</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0oj0msr">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0pe41ht">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0w5v8gm">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1qxez8y">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_01xbmnu">        <text><![CDATA["IP"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_02nqahn">
+          <text><![CDATA["Master", "Lizentiat"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1iejcxt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bohzc2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_164ypmy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_194sv4c">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gw0nhc">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oj0msr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pe41ht">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w5v8gm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qxez8y">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01xbmnu">
+          <text><![CDATA["IP"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-18">
         <description>Sustained Work Duties</description>
-        <inputEntry id="UnaryTests_0mgndzs">        <text><![CDATA["Master", "Lizentiat"]]></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1hsqr69">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0428or2">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_19ue6kv">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0vudauh">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1mxw4xo">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1c6li4n">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0pm41xt">        <text>true</text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0h0i3sk">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1es237i">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_0y6rlan">        <text><![CDATA["IP"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_0mgndzs">
+          <text><![CDATA["Master", "Lizentiat"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hsqr69">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0428or2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19ue6kv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vudauh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mxw4xo">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c6li4n">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pm41xt">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h0i3sk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1es237i">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0y6rlan">
+          <text><![CDATA["IP"]]></text>
+        </outputEntry>
       </rule>
       <rule id="row-841221737-17">
         <description>Alles Andere</description>
-        <inputEntry id="UnaryTests_1abyzcx">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_19v645x">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0mrjo9j">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0uq8ajh">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0jh31eo">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0vl1r53">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0iph4bw">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_0b8fikz">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1fvtgbn">        <text></text>
-</inputEntry>
-        <inputEntry id="UnaryTests_1x2ucj8">        <text></text>
-</inputEntry>
-        <outputEntry id="LiteralExpression_097gymm">        <text><![CDATA["OT"]]></text>
-</outputEntry>
+        <inputEntry id="UnaryTests_1abyzcx">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19v645x">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mrjo9j">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uq8ajh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jh31eo">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vl1r53">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0iph4bw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b8fikz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fvtgbn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x2ucj8">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_097gymm">
+          <text><![CDATA["OT"]]></text>
+        </outputEntry>
       </rule>
     </decisionTable>
   </decision>

@@ -35,6 +35,11 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+			<dependency>
+			  <groupId>org.camunda.bpm.extension</groupId>
+			  <artifactId>camunda-bpm-mail-core</artifactId>
+			  <version>1.0.0</version>
+			</dependency>
         </dependencies>
     </dependencyManagement>
 
