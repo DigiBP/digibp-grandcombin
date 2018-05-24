@@ -1,0 +1,24 @@
+- Testing Conditions/Integrator (Bruno)
+- Webseite (Bruno)
+- Upload Publikation -> PDF laden und metadaten auslesen (Maja)
+- gesamten Prozess im Camunda Abbilden mit Attributen (Maja)
+- Publikation:
+-> PublikationID
+-> Titel
+-> Autoren
+-> Authoren ID's
+-> Abstract
+-> Publikationstyp
+-> Zielgruppe
+-> Peer-Review Status
+-> Veröffentlichungsdatum
+-> Datei laden Wie kann PDF im Camunda geladen werden?
+- Anbindung Integromat (Benjamin)
+- User Task im Camunda: "Completenes Check" User zuweisen zur manuellen überprüfung
+- User Task im Camunda: "Publication Check" User zuweisen zur manuellen überprüfung
+
+
+
+
+
+
