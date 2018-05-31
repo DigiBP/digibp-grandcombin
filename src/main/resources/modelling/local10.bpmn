@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1r3vrez" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.12.0">
+  <bpmn:process id="invoke11" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Start">
+      <bpmn:outgoing>SequenceFlow_1wcwhhy</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1wcwhhy" sourceRef="StartEvent_1" targetRef="Task_03h7sg1" />
+    <bpmn:userTask id="Task_03h7sg1" name="Start Form">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="JsonInput" label="Json" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1wcwhhy</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0bt46zt</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0bt46zt" sourceRef="Task_03h7sg1" targetRef="Task_1fhjimd" />
+    <bpmn:endEvent id="EndEvent_1cvsjy4">
+      <bpmn:incoming>SequenceFlow_1mps0gn</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_05md2y0" sourceRef="Task_1fhjimd" targetRef="Task_0pqd5vo" />
+    <bpmn:sequenceFlow id="SequenceFlow_1mps0gn" sourceRef="Task_0pqd5vo" targetRef="EndEvent_1cvsjy4" />
+    <bpmn:userTask id="Task_0pqd5vo" name="Show">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="price" label="Price" type="long" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_05md2y0</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1mps0gn</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Task_1fhjimd" name="Add vaariable" camunda:class="ch.fhnw.digibp.sevice2">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="to">bruno.rodrigues@fhnw.ch</camunda:inputParameter>
+            <camunda:inputParameter name="subject">Confirmation</camunda:inputParameter>
+            <camunda:inputParameter name="text">Your pizza is on the way!</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>mail-send</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0bt46zt</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_05md2y0</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="invoke11">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="179" y="138" width="24" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1wcwhhy_di" bpmnElement="SequenceFlow_1wcwhhy">
+        <di:waypoint x="209" y="120" />
+        <di:waypoint x="254" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="231.5" y="99" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_1st8qn1_di" bpmnElement="Task_03h7sg1">
+        <dc:Bounds x="254" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0bt46zt_di" bpmnElement="SequenceFlow_0bt46zt">
+        <di:waypoint x="354" y="120" />
+        <di:waypoint x="399" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="331.5" y="99" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1cvsjy4_di" bpmnElement="EndEvent_1cvsjy4">
+        <dc:Bounds x="685" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="703" y="142" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_05md2y0_di" bpmnElement="SequenceFlow_05md2y0">
+        <di:waypoint x="499" y="120" />
+        <di:waypoint x="527" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="468" y="99" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1mps0gn_di" bpmnElement="SequenceFlow_1mps0gn">
+        <di:waypoint x="627" y="120" />
+        <di:waypoint x="685" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="656" y="99" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_0jeypfw_di" bpmnElement="Task_0pqd5vo">
+        <dc:Bounds x="527" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0pzjmmq_di" bpmnElement="Task_1fhjimd">
+        <dc:Bounds x="399" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
