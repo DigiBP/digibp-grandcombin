@@ -125,10 +125,10 @@ public class sevice2 implements JavaDelegate  {
                             }
                             if(itemPub.length==1){
                             mainAutorMail = itemPubInfo[0].replace("\"mail\":", "").replace("\"", "");
-                          //  mainAutor = itemPubInfo[1].replace("\"name\":", "").replace("\"", "");
-                             mainAutor ="overriden1";
-                           // mainAutorID = itemPubInfo[2].replace("\"id\":", "").replace("\"", "").replace("}", "");
-                            mainAutorID ="overriden2";
+                            mainAutor = itemPubInfo[1].replace("\"name\":", "").replace("\"", "");
+                           
+                            mainAutorID = itemPubInfo[2].replace("\"id\":", "").replace("\"", "").replace("}", "");
+                           
                              
                             System.out.println("mainAutor: "+mainAutor); 
                             System.out.println("mainAutorMail: "+mainAutorMail);
