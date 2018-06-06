@@ -44,7 +44,7 @@ public class sevice2 implements JavaDelegate  {
            // String I = JsonInput;
             ArrayList pubList = new ArrayList();
             
-            final JSONObject obj = new JSONObject(I);
+            final JSONObject obj = new JSONObject(java.net.URLDecoder.decode(I));
             final JSONArray data1 = obj.getJSONArray("Data");
             final int n = data1.length();
             
