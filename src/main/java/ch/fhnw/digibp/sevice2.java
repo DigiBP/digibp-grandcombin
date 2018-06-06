@@ -189,17 +189,20 @@ public class sevice2 implements JavaDelegate  {
                     }
                     
                     
-                   execution.setVariable("title", title);
-                   execution.setVariable("autor", autor);
+                   execution.setVariable("Title", title);
+                   execution.setVariable("PubAuthors", autor);
                    execution.setVariable("publikationid", PubUri);
-                   execution.setVariable("pubAbstract", pubAbstract);
-                   execution.setVariable("peerreview", pubReview);
-                   execution.setVariable("publikationstyp", pubType);
-                   execution.setVariable("audience", pubAudience);
+                   execution.setVariable("PubAbstract", pubAbstract);
+                   execution.setVariable("PubPeerReview", pubReview);
+                   execution.setVariable("PubType", pubType);
+                   execution.setVariable("PubAudience", pubAudience);
                    execution.setVariable("datum", pubDate);
-                   execution.setVariable("autorid", pubID);
+                   execution.setVariable("PubID", pubID);
                    execution.setVariable("publication", "ja");
-                   
+                   execution.setVariable("AuthorMain",mainAutor);
+                   execution.setVariable("AuthorMainMail",mainAutorMail);
+                   execution.setVariable("AuthorMainID",mainAutorID);
+                   execution.setVariable("PubAuthorsIDs", pubID);         
                    execution.setVariable("PubListSize", pubList.size());
                    execution.setVariable("pubList", pubList);
                    
