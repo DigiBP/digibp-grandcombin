@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_111swvy" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.12.0">
-  <bpmn:collaboration id="ICE_20180531">
+  <bpmn:collaboration id="ICE_20180531L">
     <bpmn:extensionElements>
       <camunda:properties>
         <camunda:property />
       </camunda:properties>
     </bpmn:extensionElements>
-    <bpmn:participant id="Participant_1vwmrjl" name="Intelectual Contributions Examination -Process" processRef="Process_5" />
+    <bpmn:participant id="Participant_1vwmrjl" name="Intelectual Contributions Examination -Process" processRef="ICE_20180531_v3" />
   </bpmn:collaboration>
-  <bpmn:process id="Process_5" isExecutable="true">
+  <bpmn:process id="ICE_20180531_v3" isExecutable="true">
     <bpmn:laneSet>
       <bpmn:lane id="Lane_127zvyl" name="IC-Commission">
         <bpmn:flowNodeRef>ICCommission</bpmn:flowNodeRef>
@@ -17,16 +17,15 @@
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>do</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>EndEvent_16a7js2</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>connection1</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>BoundaryEvent_1kmergb</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>EndEvent_1u4j13y</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ParallelGateway_2</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>reportData</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>evaluateQualification</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>ParallelGateway_1</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>EndEvent_1</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>ExclusiveGateway_1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Points</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>connection1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_0mgty59</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>ExclusiveGateway_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_1</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_0rybxvg" name="Employee">
         <bpmn:flowNodeRef>correctMetadata</bpmn:flowNodeRef>
@@ -57,9 +56,6 @@
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_0cpiji4" sourceRef="checkPublication" targetRef="ExclusiveGateway_2" />
     <bpmn:sequenceFlow id="SequenceFlow_1ahsns0" sourceRef="checkCompleteness" targetRef="ExclusiveGateway_1ahnqng" />
-    <bpmn:sequenceFlow id="SequenceFlow_00lfnwi" name="no Publication" sourceRef="ExclusiveGateway_1" targetRef="EndEvent_1">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[#{publication =='nein'}]]></bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_1kfspba" name="Publication" sourceRef="ExclusiveGateway_1" targetRef="checkCompleteness">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression"><![CDATA[#{publication =='ja'}]]></bpmn:conditionExpression>
     </bpmn:sequenceFlow>
@@ -93,11 +89,6 @@
           <camunda:formField id="publisher" label="publisher" type="string" />
           <camunda:formField id="datum" label="datum" type="string" />
           <camunda:formField id="publication" label="publication" type="string" />
-          <camunda:formField id="sheetURL" label="sheetURL" type="string">
-            <camunda:validation>
-              <camunda:constraint name="readonly" />
-            </camunda:validation>
-          </camunda:formField>
           <camunda:formField id="reviewok" label="reviewOk" type="string" defaultValue="yes" />
           <camunda:formField id="changesMade" label="changesMade" type="string" defaultValue="no" />
         </camunda:formData>
@@ -300,77 +291,15 @@
       <bpmn:outgoing>SequenceFlow_1lwmocq</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="SequenceFlow_1lwmocq" sourceRef="ExclusiveGateway_1ahnqng" targetRef="checkPublication" />
-    <bpmn:serviceTask id="connection1" name="Connection (Download Publications from external DBs)" camunda:modelerTemplate="digibp.connector.http.nobody">
-      <bpmn:extensionElements>
-        <camunda:connector inout="">
-          <camunda:inputOutput>
-            <camunda:inputParameter name="method">GET</camunda:inputParameter>
-            <camunda:inputParameter name="url">https://hook.integromat.com/5a67q5df6jrvkrfbxs9y9boldlmsn7ns</camunda:inputParameter>
-            <camunda:outputParameter name="publikationid">
-              <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
-publikationid = object.publikationid;]]></camunda:script>
-            </camunda:outputParameter>
-            <camunda:outputParameter name="autor">
-              <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
-autor = object.autor;]]></camunda:script>
-            </camunda:outputParameter>
-            <camunda:outputParameter name="autorid">
-              <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
-autorid = object.autorid;]]></camunda:script>
-            </camunda:outputParameter>
-            <camunda:outputParameter name="titel">
-              <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
-titel = object.titel;]]></camunda:script>
-            </camunda:outputParameter>
-            <camunda:outputParameter name="sheetURL">
-              <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
-sheetURL = object.sheetURL;]]></camunda:script>
-            </camunda:outputParameter>
-            <camunda:outputParameter name="publication">
-              <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
-publication = object.publication;]]></camunda:script>
-            </camunda:outputParameter>
-            <camunda:outputParameter name="publikationstyp">
-              <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
-publikationstyp = object.publikationstyp;]]></camunda:script>
-            </camunda:outputParameter>
-            <camunda:outputParameter name="peerreview">
-              <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
-peerreview = object.peerreview;]]></camunda:script>
-            </camunda:outputParameter>
-            <camunda:outputParameter name="publisher">
-              <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
-publisher = object.publisher;]]></camunda:script>
-            </camunda:outputParameter>
-            <camunda:outputParameter name="datum">
-              <camunda:script scriptFormat="JavaScript"><![CDATA[object = JSON.parse(response);
-datum = object.datum;]]></camunda:script>
-            </camunda:outputParameter>
-          </camunda:inputOutput>
-          <camunda:connectorId>http-connector</camunda:connectorId>
-        </camunda:connector>
-      </bpmn:extensionElements>
-      <bpmn:incoming>SequenceFlow_0hstbba</bpmn:incoming>
-      <bpmn:incoming>SequenceFlow_0v3ni5g</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_0bnjpnm</bpmn:outgoing>
-    </bpmn:serviceTask>
     <bpmn:sequenceFlow id="SequenceFlow_0hstbba" sourceRef="StartEvent_1" targetRef="connection1" />
     <bpmn:sequenceFlow id="SequenceFlow_0v3ni5g" sourceRef="StartEvent_1" targetRef="connection1" />
     <bpmn:boundaryEvent id="BoundaryEvent_1nz90q0" attachedToRef="checkCorrections">
       <bpmn:outgoing>SequenceFlow_16egivw</bpmn:outgoing>
       <bpmn:timerEventDefinition>
-        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">P10D</bpmn:timeDuration>
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">P2M</bpmn:timeDuration>
       </bpmn:timerEventDefinition>
     </bpmn:boundaryEvent>
     <bpmn:sequenceFlow id="SequenceFlow_16egivw" sourceRef="BoundaryEvent_1nz90q0" targetRef="ExclusiveGateway_1qoea3k" />
-    <bpmn:boundaryEvent id="BoundaryEvent_1kmergb" attachedToRef="connection1">
-      <bpmn:outgoing>SequenceFlow_1v12ol5</bpmn:outgoing>
-      <bpmn:errorEventDefinition />
-    </bpmn:boundaryEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_1v12ol5" sourceRef="BoundaryEvent_1kmergb" targetRef="EndEvent_1u4j13y" />
-    <bpmn:endEvent id="EndEvent_1u4j13y">
-      <bpmn:incoming>SequenceFlow_1v12ol5</bpmn:incoming>
-    </bpmn:endEvent>
     <bpmn:parallelGateway id="ParallelGateway_2">
       <bpmn:incoming>SequenceFlow_0d6pzur</bpmn:incoming>
       <bpmn:incoming>SequenceFlow_0pb77rf</bpmn:incoming>
@@ -481,49 +410,69 @@ header;]]></camunda:script>
     </bpmn:parallelGateway>
     <bpmn:sequenceFlow id="SequenceFlow_0s217tg" sourceRef="ExclusiveGateway_1qoea3k" targetRef="Points" />
     <bpmn:sequenceFlow id="SequenceFlow_1yeihi3" sourceRef="Points" targetRef="ParallelGateway_1" />
-    <bpmn:endEvent id="EndEvent_1">
-      <bpmn:incoming>SequenceFlow_00lfnwi</bpmn:incoming>
-    </bpmn:endEvent>
-    <bpmn:exclusiveGateway id="ExclusiveGateway_1" name="Publication available?">
+    <bpmn:businessRuleTask id="Points" name="assign Points" camunda:resultVariable="dmn_point" camunda:decisionRef="dmn_points2" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>SequenceFlow_0s217tg</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1yeihi3</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:userTask id="checkCompleteness" name="Completeness Check Employee">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="publikationid" label="publikationid" type="string" />
+          <camunda:formField id="title" label="Titel" type="string" />
+          <camunda:formField id="autor" label="autor" type="string" />
+          <camunda:formField id="autorid" label="autorid" type="string" />
+          <camunda:formField id="publikationstyp" label="publikationstyp" type="string" />
+          <camunda:formField id="peerreview" label="peerreview" type="string" />
+          <camunda:formField id="audience" label="Audience" type="string" />
+          <camunda:formField id="datum" label="datum" type="string" />
+          <camunda:formField id="publication" label="publication" type="string" />
+          <camunda:formField id="pubAbstract" label="Abstract" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1kfspba</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1ahsns0</bpmn:outgoing>
+      <bpmn:multiInstanceLoopCharacteristics camunda:collection="pubList" />
+    </bpmn:userTask>
+    <bpmn:serviceTask id="connection1" name="Connection (Download Publications from external DBs)" camunda:modelerTemplate="digibp.connector.http.nobody">
+      <bpmn:extensionElements>
+        <camunda:connector inout="">
+          <camunda:inputOutput>
+            <camunda:inputParameter name="method">GET</camunda:inputParameter>
+            <camunda:inputParameter name="url">https://hook.integromat.com/5a67q5df6jrvkrfbxs9y9boldlmsn7ns</camunda:inputParameter>
+            <camunda:outputParameter name="metadata">
+              <camunda:script scriptFormat="JavaScript">metadata=String(response);</camunda:script>
+            </camunda:outputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0hstbba</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0v3ni5g</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1o6xm0n</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1o6xm0n" sourceRef="connection1" targetRef="Task_0mgty59" />
+    <bpmn:sequenceFlow id="SequenceFlow_00lfnwi" name="no Publication" sourceRef="ExclusiveGateway_1" targetRef="EndEvent_1" />
+    <bpmn:sequenceFlow id="SequenceFlow_0ugdsa2" sourceRef="Task_0mgty59" targetRef="ExclusiveGateway_1" />
+    <bpmn:serviceTask id="Task_0mgty59" name="Parse Answer" camunda:class="ch.fhnw.digibp.sevice2">
+      <bpmn:incoming>SequenceFlow_1o6xm0n</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0ugdsa2</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1" name="Publication available?" default="SequenceFlow_00lfnwi">
       <bpmn:extensionElements>
         <camunda:properties>
           <camunda:property />
         </camunda:properties>
       </bpmn:extensionElements>
-      <bpmn:incoming>SequenceFlow_0bnjpnm</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0ugdsa2</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_00lfnwi</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_1kfspba</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="SequenceFlow_0bnjpnm" sourceRef="connection1" targetRef="ExclusiveGateway_1" />
-    <bpmn:businessRuleTask id="Points" name="assign Points" camunda:resultVariable="dmn_point" camunda:decisionRef="dmn_points2" camunda:mapDecisionResult="singleEntry" camunda:decisionRefTenantId="dmn_points2">
-      <bpmn:incoming>SequenceFlow_0s217tg</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1yeihi3</bpmn:outgoing>
-    </bpmn:businessRuleTask>
-    <bpmn:userTask id="checkCompleteness" name="Completeness Check">
-      <bpmn:extensionElements>
-        <camunda:formData>
-          <camunda:formField id="publikationid" label="publikationid" type="string" />
-          <camunda:formField id="titel" label="Titel" type="string" />
-          <camunda:formField id="autor" label="autor" type="string" />
-          <camunda:formField id="autorid" label="autorid" type="string" />
-          <camunda:formField id="publikationstyp" label="publikationstyp" type="string" />
-          <camunda:formField id="peerreview" label="peerreview" type="string" />
-          <camunda:formField id="publisher" label="publisher" type="string" />
-          <camunda:formField id="datum" label="datum" type="string" />
-          <camunda:formField id="publication" label="publication" type="string" />
-          <camunda:formField id="sheetURL" label="sheetURL" type="string">
-            <camunda:validation>
-              <camunda:constraint name="readonly" />
-            </camunda:validation>
-          </camunda:formField>
-        </camunda:formData>
-      </bpmn:extensionElements>
-      <bpmn:incoming>SequenceFlow_1kfspba</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1ahsns0</bpmn:outgoing>
-    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_1">
+      <bpmn:incoming>SequenceFlow_00lfnwi</bpmn:incoming>
+    </bpmn:endEvent>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ICE_20180531">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ICE_20180531L">
       <bpmndi:BPMNShape id="Participant_1vwmrjl_di" bpmnElement="Participant_1vwmrjl">
         <dc:Bounds x="127" y="-38" width="1766.5101214574897" height="820" />
       </bpmndi:BPMNShape>
@@ -546,36 +495,33 @@ header;]]></camunda:script>
         <dc:Bounds x="157" y="570" width="1736.5101214574897" height="93" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_00lfnwi_di" bpmnElement="SequenceFlow_00lfnwi">
-        <di:waypoint x="603" y="159" />
-        <di:waypoint x="603" y="69" />
+        <di:waypoint x="603" y="162" />
+        <di:waypoint x="603" y="67" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="585" y="145" width="67" height="12" />
+          <dc:Bounds x="608" y="132" width="70" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_1kfspba_di" bpmnElement="SequenceFlow_1kfspba">
-        <di:waypoint x="605" y="207" />
-        <di:waypoint x="608" y="243" />
-        <di:waypoint x="608" y="376" />
+        <di:waypoint x="603" y="212" />
+        <di:waypoint x="603" y="350" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="596" y="270" width="52" height="12" />
+          <dc:Bounds x="762" y="237" width="54" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ExclusiveGateway_110v6gh_di" bpmnElement="ExclusiveGateway_1" isMarkerVisible="true">
-        <dc:Bounds x="578" y="159" width="50" height="50" />
+        <dc:Bounds x="578" y="162" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="640" y="175" width="52" height="24" />
+          <dc:Bounds x="638" y="175" width="54" height="24" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="UserTask_0uxju38_di" bpmnElement="checkCompleteness">
-        <dc:Bounds x="558" y="376" width="100" height="80" />
+        <dc:Bounds x="553" y="350" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_1ahsns0_di" bpmnElement="SequenceFlow_1ahsns0">
-        <di:waypoint x="608" y="456" />
-        <di:waypoint x="608" y="475" />
-        <di:waypoint x="603" y="475" />
+        <di:waypoint x="603" y="430" />
         <di:waypoint x="603" y="493" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="560.5" y="454" width="90" height="12" />
+          <dc:Bounds x="573" y="455.5" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="UserTask_0rmx79y_di" bpmnElement="checkPublication">
@@ -769,26 +715,26 @@ header;]]></camunda:script>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_1maon8w_di" bpmnElement="EndEvent_1">
-        <dc:Bounds x="585" y="33" width="36" height="36" />
+        <dc:Bounds x="585" y="31" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="513" y="73" width="90" height="12" />
+          <dc:Bounds x="513" y="71" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ServiceTask_1ykm1ar_di" bpmnElement="connection1">
-        <dc:Bounds x="243" y="147" width="100" height="80" />
+        <dc:Bounds x="262" y="147" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0hstbba_di" bpmnElement="SequenceFlow_0hstbba">
         <di:waypoint x="234" y="187" />
-        <di:waypoint x="243" y="187" />
+        <di:waypoint x="262" y="187" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="193.5" y="166" width="90" height="12" />
+          <dc:Bounds x="203" y="166" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0v3ni5g_di" bpmnElement="SequenceFlow_0v3ni5g">
         <di:waypoint x="234" y="187" />
-        <di:waypoint x="243" y="187" />
+        <di:waypoint x="262" y="187" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="238.5" y="166" width="0" height="12" />
+          <dc:Bounds x="203" y="166" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ServiceTask_1vhh7h0_di" bpmnElement="reportData">
@@ -807,25 +753,6 @@ header;]]></camunda:script>
           <dc:Bounds x="1087.5" y="330" width="0" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="BoundaryEvent_1sjvdvx_di" bpmnElement="BoundaryEvent_1kmergb">
-        <dc:Bounds x="325" y="129" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="343" y="169" width="0" height="12" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="EndEvent_1u4j13y_di" bpmnElement="EndEvent_1u4j13y">
-        <dc:Bounds x="325" y="32.57599999999999" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="343" y="10.151999999999987" width="0" height="12" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_1v12ol5_di" bpmnElement="SequenceFlow_1v12ol5">
-        <di:waypoint x="343" y="129" />
-        <di:waypoint x="343" y="69" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="358" y="93" width="0" height="12" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0s217tg_di" bpmnElement="SequenceFlow_0s217tg">
         <di:waypoint x="1220" y="297" />
         <di:waypoint x="1220" y="182" />
@@ -840,16 +767,26 @@ header;]]></camunda:script>
           <dc:Bounds x="1263.5" y="121" width="90" height="12" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="SequenceFlow_0bnjpnm_di" bpmnElement="SequenceFlow_0bnjpnm">
-        <di:waypoint x="343" y="187" />
-        <di:waypoint x="578" y="184" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="415.5" y="164.5" width="90" height="12" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="BusinessRuleTask_1np5pss_di" bpmnElement="Points">
         <dc:Bounds x="1170" y="102" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_19ixylx_di" bpmnElement="Task_0mgty59">
+        <dc:Bounds x="407" y="147" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1o6xm0n_di" bpmnElement="SequenceFlow_1o6xm0n">
+        <di:waypoint x="362" y="187" />
+        <di:waypoint x="407" y="187" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="339.5" y="166" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ugdsa2_di" bpmnElement="SequenceFlow_0ugdsa2">
+        <di:waypoint x="507" y="203" />
+        <di:waypoint x="582" y="191" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="499.5" y="176" width="90" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

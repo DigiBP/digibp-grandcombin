@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1y6rgth" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="1.12.0">
+  <bpmn:process id="SendInfoToTask" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1ns2n0q</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1ns2n0q" sourceRef="StartEvent_1" targetRef="Task_16fkiw9" />
+    <bpmn:sequenceFlow id="SequenceFlow_0hx2tk2" sourceRef="Task_0cnbo9z" targetRef="EndEvent_0i308xe" />
+    <bpmn:endEvent id="EndEvent_0i308xe">
+      <bpmn:incoming>SequenceFlow_0hx2tk2</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="Task_0cnbo9z" name="Send Info To Task" camunda:assignee="demo" camunda:priority="100">
+      <bpmn:extensionElements>
+        <camunda:connector inout="">
+          <camunda:inputOutput>
+            <camunda:inputParameter name="method">GET</camunda:inputParameter>
+            <camunda:inputParameter name="url">https://hook.integromat.com/5a67q5df6jrvkrfbxs9y9boldlmsn7ns</camunda:inputParameter>
+            <camunda:outputParameter name="processVariableResponse">
+              <camunda:script scriptFormat="JavaScript">response;</camunda:script>
+            </camunda:outputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+        <camunda:formData>
+          <camunda:formField id="metadata" label="Meta" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0ak8jip</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0hx2tk2</bpmn:outgoing>
+      <bpmn:multiInstanceLoopCharacteristics camunda:collection="liste" camunda:elementVariable="BRUNo">
+        <bpmn:loopCardinality xsi:type="bpmn:tFormalExpression">4</bpmn:loopCardinality>
+      </bpmn:multiInstanceLoopCharacteristics>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0ak8jip" sourceRef="Task_16fkiw9" targetRef="Task_0cnbo9z" />
+    <bpmn:serviceTask id="Task_16fkiw9" name="Con2" camunda:modelerTemplate="digibp.connector.http.nobody">
+      <bpmn:extensionElements>
+        <camunda:connector inout="">
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">https://hook.integromat.com/5a67q5df6jrvkrfbxs9y9boldlmsn7ns</camunda:inputParameter>
+            <camunda:inputParameter name="method">GET</camunda:inputParameter>
+            <camunda:outputParameter name="metadata">
+              <camunda:script scriptFormat="JavaScript">metadata=String(response);</camunda:script>
+            </camunda:outputParameter>
+            <camunda:outputParameter name="liste">
+              <camunda:list>
+                <camunda:value>response;</camunda:value>
+                <camunda:value>response;</camunda:value>
+                <camunda:value>response;</camunda:value>
+                <camunda:value>response;</camunda:value>
+                <camunda:value>response;</camunda:value>
+                <camunda:value>response;</camunda:value>
+              </camunda:list>
+            </camunda:outputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1ns2n0q</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0ak8jip</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmn:message id="Message_04jl50u" name="Message_1dijgsp" />
+  <bpmn:message id="Message_0ixhlgg" name="Message_0kv7vtr" />
+  <bpmn:message id="Message_1w1ax80" name="Message_29jieq1" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="SendInfoToTask">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="173" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1ns2n0q_di" bpmnElement="SequenceFlow_1ns2n0q">
+        <di:waypoint x="209" y="120" />
+        <di:waypoint x="331" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="270" y="99" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0hx2tk2_di" bpmnElement="SequenceFlow_0hx2tk2">
+        <di:waypoint x="624" y="126" />
+        <di:waypoint x="662" y="126" />
+        <di:waypoint x="662" y="120" />
+        <di:waypoint x="699" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="677" y="117" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1dkfr2s_di" bpmnElement="EndEvent_0i308xe">
+        <dc:Bounds x="699" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="717" y="142" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_05yoz55_di" bpmnElement="Task_0cnbo9z">
+        <dc:Bounds x="524" y="86" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ak8jip_di" bpmnElement="SequenceFlow_0ak8jip">
+        <di:waypoint x="431" y="120" />
+        <di:waypoint x="478" y="120" />
+        <di:waypoint x="478" y="126" />
+        <di:waypoint x="524" y="126" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="493" y="117" width="0" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_1c2d53b_di" bpmnElement="Task_16fkiw9">
+        <dc:Bounds x="331" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

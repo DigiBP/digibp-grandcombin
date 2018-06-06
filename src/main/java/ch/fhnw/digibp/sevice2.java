@@ -18,7 +18,11 @@ import java.util.*;
  */
 @Named
 public class sevice2 implements JavaDelegate  {
-	static String pubID="";
+    
+    
+    static String JsonInput = "{\"Data\":[{\"id\":12005,\"mail\":\"bruno.rodrigues@students.fhnw.chbruno.rodrigues@fhnw.ch\",\"name\":\"Rolf Dornberger\",\"metadata\":[{\"key\":\"dc.contributor.author\",\"value\":\"Menon, Dilip\",\"identifier\":\"71406\"},{\"key\":\"dc.contributor.author\",\"value\":\"Zwimpfer, Cédric\",\"identifier\":\"71421\"},{\"key\":\"dc.contributor.author\",\"value\":\"Hanne, Thomas\",\"identifier\":\"12123\"},{\"key\":\"dc.contributor.author\",\"value\":\"Dornberger, Rolf\",\"identifier\":\"12005\"},{\"key\":\"dc.date.accessioned\",\"value\":\"2015-09-21T09:30:58Z\",\"identifier\":null},{\"key\":\"dc.date.available\",\"value\":\"2015-09-21T09:30:58Z\",\"identifier\":null},{\"key\":\"dc.date.issued\",\"value\":\"2015-12-09\",\"identifier\":null},{\"key\":\"dc.identifier.uri\",\"value\":\"http://hdl.handle.net/11654/5067\",\"identifier\":null},{\"key\":\"dc.language.iso\",\"value\":\"en\",\"identifier\":null},{\"key\":\"dc.relation.ispartof\",\"value\":\"3rd International Symposium on Computational and Business Intelligence (ISCBI 2015)\",\"identifier\":null},{\"key\":\"dc.accessRights\",\"value\":\"Anonymous\",\"identifier\":null},{\"key\":\"dc.subject.ddc\",\"value\":\"330 - Wirtschaft\",\"identifier\":null},{\"key\":\"dc.title\",\"value\":\"Facility Layout Planning Using Fuzzy Closeness Computation and a Genetic Algorithm\",\"identifier\":null},{\"key\":\"dc.type\",\"value\":\"04 - Beitrag Sammelband oder Konferenzschrift\",\"identifier\":null},{\"key\":\"dc.spatial\",\"value\":\"Bali, Indonesia\",\"identifier\":null},{\"key\":\"dc.event.start\",\"value\":\"2015-12-07\",\"identifier\":null},{\"key\":\"dc.event.end\",\"value\":\"2015-12-08\",\"identifier\":null},{\"key\":\"dc.audience\",\"value\":\"Science\",\"identifier\":null},{\"key\":\"fhnw.publicationState\",\"value\":\"Published\",\"identifier\":null},{\"key\":\"fhnw.ReviewType\",\"value\":\"Anonymous ex ante peer review of a complete publication\",\"identifier\":null},{\"key\":\"fhnw.InventedHere\",\"value\":\"Yes\",\"identifier\":null},{\"key\":\"fhnw.PublishedSwitzerland\",\"value\":\"No\",\"identifier\":null},{\"key\":\"fhnw.IsStudentsWork\",\"value\":\"no\",\"identifier\":null},{\"key\":\"OrgUnitID\",\"value\":\"FW726\",\"identifier\":null},{\"key\":\"OrgUnitName\",\"value\":\"Institut für Wirtschaftsinformatik\",\"identifier\":null},{\"key\":\"OrgUnitID\",\"value\":\"FW\",\"identifier\":null},{\"key\":\"OrgUnitName\",\"value\":\"Hochschule für Wirtschaft\",\"identifier\":null}]}]}";
+    
+    static String pubID="";
     static String title;
     static String pubType; 
     static String pubReview; 
@@ -27,73 +31,145 @@ public class sevice2 implements JavaDelegate  {
     static String PubUri;
     static String pubDate;
     static String autor="";
+    static String mainAutor;
+    static String mainAutorID;
+    static String mainAutorMail;
     static int countAuthor=0;
-	
+    static int countItem = 0;  
+ 
      public void execute(DelegateExecution execution) throws JSONException{
-         String I = (String)execution.getVariable("JsonInput");
-         System.out.println("ch.fhnw.digibp.sevice2.execute()");
-         System.out.println(I);
-                  
-         
-       
-        //String JSON_DATA="{\"metadata\":[{\"key\":\"dc.contributor.author\",\"value\":\"Witschel, Hans Friedrich\",\"identifier\":\"15384\"},{\"key\":\"dc.contributor.author\",\"value\":\"Hu, Bo\",\"identifier\":null},{\"key\":\"dc.contributor.author\",\"value\":\"Riss, Uwe\",\"identifier\":null},{\"key\":\"dc.contributor.author\",\"value\":\"Thönssen, Barbara\",\"identifier\":\"12016\"},{\"key\":\"dc.contributor.author\",\"value\":\"Brun, Roman\",\"identifier\":null},{\"key\":\"dc.contributor.author\",\"value\":\"Martin, Andreas\",\"identifier\":\"13087\"},{\"key\":\"dc.contributor.author\",\"value\":\"Hinkelmann, Knut\",\"identifier\":\"11943\"},{\"key\":\"dc.date.accessioned\",\"value\":\"2015-10-05T15:41:43Z\",\"identifier\":null},{\"key\":\"dc.date.available\",\"value\":\"2015-10-05T15:41:43Z\",\"identifier\":null},{\"key\":\"dc.date.issued\",\"value\":\"2010-01-01T00:00:00Z\",\"identifier\":null},{\"key\":\"dc.identifier.uri\",\"value\":\"http://hdl.handle.net/11654/9313\",\"identifier\":null},{\"key\":\"dc.description.abstract\",\"value\":\"We introduce a new approach supporting knowledge workers in sharing process-related knowledge. It is based on the insight that  while offering valuable context information  traditional business process modelling approaches are too rigid and inflexible to capture the actual way processes are executed. Therefore, business process models are made agile and open for changes during execution. To achieve this, the strict distinction between build time modelling and run time execution are softened and process activities are represented to the users in a way that allows for individual adaptations. That can be done by attaching resources, commenting on an issue or adding problems and solutions to an activity or process. In addition activities can be delegated or new (sub-)activities can be added. Thus, the model can adapt to the reality of actual process executions and valuable resources and experiences are proactively presented to users in the right context. A double-staged approach is chosen to apply the model in the real application scenario of an university.\",\"identifier\":null},{\"key\":\"dc.language.iso\",\"value\":\"en_UK\",\"identifier\":null},{\"key\":\"dc.accessRights\",\"value\":\"Anonymous\",\"identifier\":null},{\"key\":\"dc.subject.ddc\",\"value\":\"330 - Wirtschaft\",\"identifier\":null},{\"key\":\"dc.subject.ddc\",\"value\":\"005 - Computer Programmierung, Programme und Daten\",\"identifier\":null},{\"key\":\"dc.title\",\"value\":\"A Collaborative Approach to Maturing Process-related Knowledge\",\"identifier\":null},{\"key\":\"dc.type\",\"value\":\"04 - Beitrag Sammelband oder Konferenzschrift\",\"identifier\":null},{\"key\":\"dc.spatial\",\"value\":\"New York City\",\"identifier\":null},{\"key\":\"dc.event\",\"value\":\"8th International Conference on Business Process Management (BPM 2010)\",\"identifier\":null},{\"key\":\"dc.audience\",\"value\":\"Sonstige\",\"identifier\":null},{\"key\":\"fhnw.publicationState\",\"value\":\"Veröffentlicht\",\"identifier\":null},{\"key\":\"fhnw.ReviewType\",\"value\":\"Kein Peer Review\",\"identifier\":null},{\"key\":\"fhnw.InventedHere\",\"value\":\"unbekannt\",\"identifier\":null},{\"key\":\"OrgUnitID\",\"value\":\"FW726\",\"identifier\":null},{\"key\":\"OrgUnitName\",\"value\":\"Institut für Wirtschaftsinformatik\",\"identifier\":null},{\"key\":\"OrgUnitID\",\"value\":\"FW\",\"identifier\":null},{\"key\":\"OrgUnitName\",\"value\":\"Hochschule für Wirtschaft\",\"identifier\":null}]}";
-	final JSONObject obj = new JSONObject(I);
-                            
-            final JSONArray data1 = obj.getJSONArray("metadata");
+//         String I = (String)execution.getVariable("metadata");
+//         System.out.println("ch.fhnw.digibp.sevice2.execute()");
+//         System.out.println(I);
+            String I = JsonInput;
+            ArrayList pubList = new ArrayList();
+            
+            final JSONObject obj = new JSONObject(I);
+            final JSONArray data1 = obj.getJSONArray("Data");
             final int n = data1.length();
-
+            
+            
             for (int i = 0; i < n; ++i) {
               final JSONObject publ = data1.getJSONObject(i);
-              String Prov_S=publ.toString().replaceAll("[{]", "").replaceAll("[}]", "");
-
-              String[] items = Prov_S.split(":");
+              String Prov_S=publ.toString().replaceAll("\"identifier\":", "").replaceAll("\"value\":", "").replaceAll("\"key\":", "");
+              String[] items = Prov_S.split("],");
             //  System.out.println(Arrays.toString(items));
               List<String> itemList = new ArrayList<String>(Arrays.asList(items));
+                           
+             
+              for(String temp: itemList){
+                  //System.out.println("Item Nr: "+c);
+                //  System.out.println("Item Inhalt: "+temp);
+              
+                     temp = temp.replaceAll("\\{\"metadata\":\\[", "").replace("{", "");     
+                    
+                     String[] itemPub = temp.split("},");
+                     
+                    //System.out.println("Item:"+Arrays.toString(itemPub)+"SIZE: "+itemPub.length);
+                    // System.out.println("UP"+itemPub[0]);
+                     
+                     for(String temp1:itemPub){
+                          temp1 = temp1.replace("null", "Z\",");
+                          String[] itemPubInfo = temp1.split("\",");
+                          //System.out.println("Item:"+Arrays.toString(itemPubInfo));
+                          
+                          //System.out.println(itemPubInfo[(itemPubInfo.length)-1]);
+                          //System.out.println("Index0: "+itemPubInfo[1]);
+                          
+                        if(itemPubInfo[(itemPubInfo.length)-1].equals("\"dc.contributor.author\"")){
+                                                        
+                            pubID+=itemPubInfo[0].replace("Z", "").replace("\"","");
+                            autor+="\""+itemPubInfo[1].replace("\"", "")+"\",";
+                            if(!itemPubInfo[0].equals("Z")){
+                               pubID+=","; 
+                            }
+//                            System.out.println("PUBid: "+pubID);
+//                            System.out.println("Author: "+autor);
+                           
+                        }
+                         
+                            if(itemPubInfo[(itemPubInfo.length)-1].equals("\"dc.date.issued\"")){
 
+                               pubDate = itemPubInfo[1].replace(",\"", "");
+                                 
+                            }
+                            if(itemPubInfo[(itemPubInfo.length)-1].equals("\"dc.description.abstract\"")){
 
+                               pubAbstract = itemPubInfo[1].replace(",\"", "");
+                                 
+                            }
+                            if(itemPubInfo[(itemPubInfo.length)-1].equals("\"dc.identifier.uri\"")){
 
-                 // System.out.println(itemList.get(itemList.size()-1));
-                  if(itemList.get(itemList.size()-1).equals("\"dc.contributor.author\"")){
-                    if(countAuthor>0){
-                        pubID+=",";
-                        autor+=",";
-                    }            
-                   pubID+=itemList.get(1).replaceAll(",\"value\"","").replaceAll("\"", "");
-                   autor+="\""+itemList.get(2).replaceAll(",\"key\"","").replaceAll("\"", "")+"\"";
-                   countAuthor++;           
-                }
-                if(itemList.get(itemList.size()-1).equals("\"dc.date.issued\"")){            
-                    pubDate=itemList.get(2).replaceAll("null","").replaceAll("\"", "");
-                    pubDate="\""+pubDate.substring(0, pubDate.length()-3)+"\"";                    
-                }
-                 if(itemList.get(itemList.size()-1).equals("\"dc.description.abstract\"")){
-                    pubAbstract=itemList.get(2).replaceAll("null","").replaceAll("\"", "");
-                    pubAbstract="\""+pubAbstract.substring(0, pubAbstract.length()-4)+"\"";                    
-                }
-                 if(itemList.get(itemList.size()-1).equals("\"dc.identifier.uri\"")){
-                     PubUri=itemList.get(2)+":"+itemList.get(3).replaceAll(",\"key\"","");          
-                }
-                 if(itemList.get(itemList.size()-1).equals("\"dc.title\"")){
-                     title=itemList.get(2).replaceAll(",\"key\"","");
-                }
-                 if(itemList.get(itemList.size()-1).equals("\"dc.type\"")){
-                    pubType=itemList.get(2).replaceAll(",\"key\"","");
-                }
-                if(itemList.get(itemList.size()-1).equals("\"dc.type\"")){
-                    pubType=itemList.get(2).replaceAll(",\"key\"","");            
-                }
-                if(itemList.get(itemList.size()-1).equals("\"dc.audience\"")){            
-                    pubAudience=itemList.get(2).replaceAll(",\"key\"","");
-                }
-                if(itemList.get(itemList.size()-1).equals("\"fhnw.ReviewType\"")){           
-                    pubReview=itemList.get(2).replaceAll(",\"key\"","");
-                }  
+                               PubUri = itemPubInfo[1].replace(",\"", "");
+                                 
+                            }
+                            if(itemPubInfo[(itemPubInfo.length)-1].equals("\"dc.title\"")){
 
+                               title = itemPubInfo[1].replace(",\"", "");
+                               
+                            }
+                            if(itemPubInfo[(itemPubInfo.length)-1].equals("\"dc.type\"")){
+
+                               pubType = itemPubInfo[1].replace(",\"", "");
+                               
+                            }
+                            if(itemPubInfo[(itemPubInfo.length)-1].equals("\"dc.audience\"")){
+
+                               pubAudience = itemPubInfo[1].replace(",\"", "");
+                               
+                            }
+                            if(itemPubInfo[(itemPubInfo.length)-1].equals("\"fhnw.ReviewType\"")){
+
+                               pubReview = itemPubInfo[1].replace(",\"", "");
+                               
+                            }
+                            if(itemPub.length==1){
+                            mainAutorMail = itemPubInfo[0].replace("\"mail\":", "").replace("\"", "");
+                          //  mainAutor = itemPubInfo[1].replace("\"name\":", "").replace("\"", "");
+                             mainAutor ="overriden1";
+                           // mainAutorID = itemPubInfo[2].replace("\"id\":", "").replace("\"", "").replace("}", "");
+                            mainAutorID ="overriden2";
+                             
+                            System.out.println("mainAutor: "+mainAutor); 
+                            System.out.println("mainAutorMail: "+mainAutorMail);
+                            System.out.println("mainAutorID: "+mainAutorID);
+                            System.out.println("Abstract: "+pubAbstract);
+                            System.out.println("URI: "+PubUri);
+                            System.out.println("Title: "+title); 
+                            System.out.println("pubType: "+pubType); 
+                            System.out.println("pubAudience: "+pubAudience);
+                            System.out.println("pubReview: "+pubReview);                             
+                            System.out.println("Pubdate: "+pubDate);
+                            
+                            HashMap pub= new HashMap();
+                            pub.put("PubUri",PubUri);
+                            pub.put("title",title);
+
+                            pub.put("mainAutor",mainAutor);
+                            pub.put("mainAutorMail",mainAutorMail);
+                            pub.put("mainAutorID",mainAutorID);
+                            
+                            pub.put("pubType",pubType);
+                            pub.put("pubType",pubAudience);
+                            pub.put("pubReview",pubReview);
+                            pub.put("Pubdate",pubDate);
+                            pub.put("pubAbstract",pubAbstract);
+                            pub.put("publication", "ja");
+                            pubList.add(pub);
+                            
+                            System.out.println("--------------ENDE!!!-"+"COUNT:"+pubList.size());
+                            
+                             System.out.println(pubList.get(pubList.size()-1));
+                         }
+                     }
+                  
+                  
+                  
+              }
             }
-                
             
-               System.out.println("JSONTEST: "+execution.getVariable("JsonInput"));  
-               System.out.println("Titel: "+title); 
+
+             System.out.println("Titel: "+title); 
                System.out.println("URI: "+PubUri);
                System.out.println("Abst: "+pubAbstract);
                System.out.println("pubType: "+pubType);
@@ -102,14 +178,43 @@ public class sevice2 implements JavaDelegate  {
                System.out.println("PubDate: "+pubDate);
                System.out.println(pubID);
                System.out.println(autor);
-
+               System.out.println("VERSION: LAURA IST DA!");
+               
+               ArrayList uberPub = new ArrayList();
+                    for(Object A:pubList){
+                       uberPub.add(A);
+                    }
+                    for(Object B:uberPub){
+                        System.out.println(B);
+                    }
+                    
+                    
                    execution.setVariable("title", title);
                    execution.setVariable("autor", autor);
-                   execution.setVariable("PubUri", PubUri);
+                   execution.setVariable("publikationid", PubUri);
                    execution.setVariable("pubAbstract", pubAbstract);
-                   execution.setVariable("pubReview", pubReview);
-                   execution.setVariable("pubDate", pubDate);
-                   execution.setVariable("pubID", pubID);
+                   execution.setVariable("peerreview", pubReview);
+                   execution.setVariable("publikationstyp", pubType);
+                   execution.setVariable("audience", pubAudience);
+                   execution.setVariable("datum", pubDate);
+                   execution.setVariable("autorid", pubID);
+                   execution.setVariable("publication", "ja");
+                   
+                   execution.setVariable("PubListSize", pubList.size());
+                   execution.setVariable("pubList", pubList);
+                   
+                   pubList.clear();
+                   pubID="";
+                   pubDate="";
+                   pubAudience=""; 
+                   pubType="";  
+                   pubReview="";
+                   pubAbstract="";
+                   PubUri="";
+                   autor="";
+                   title="";
+                           
+                           
             }
 
             public String executeResultVariable(String data){
