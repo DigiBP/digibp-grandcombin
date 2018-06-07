@@ -1,0 +1,25 @@
+Links:
+
+Github:
+Main page: https://github.com/DigiBP/digibp-grandcombin
+Modelling artefact: https://github.com/DigiBP/digibp-grandcombin/tree/master/src/main/resources/modelling
+Project artefact (Java Class to parse input string): https://github.com/DigiBP/digibp-grandcombin/wiki
+Dokumentation: https://github.com/DigiBP/digibp-grandcombin/wiki
+
+
+Integromat:
+https://hook.integromat.com/5a67q5df6jrvkrfbxs9y9boldlmsn7ns
+
+Heroku:
+https://dashboard.heroku.com/apps/digibp-2018
+
+Camunda:
+https://digibp-2018.herokuapp.com/app/welcome/default/#/welcome
+User: demo
+PW: demo
+
+
+Presentation:
+https://docs.google.com/presentation/d/1btrg160PI2fuGX1DloUC_0DdhRQ2i840ZSkNifNpXPY/edit?usp=sharing
+
+
