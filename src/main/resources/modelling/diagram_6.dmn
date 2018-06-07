@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_16l9mxq" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="dmn_points3" name="PublicationPoints">
+    <extensionElements>
+      <biodi:bounds x="863" y="546" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable_1" hitPolicy="FIRST">
+      <input id="InputClause_1qwg118" label="Type" camunda:inputVariable="Int_PubType">
+        <inputExpression id="LiteralExpression_1uzo83z" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_141zj8b" label="PeerReview" camunda:inputVariable="Int_PubPeerReview">
+        <inputExpression id="LiteralExpression_1qdq6vt" typeRef="string">
+          <text></text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0mlc57w">
+          <text><![CDATA["yes","no"]]></text>
+        </inputValues>
+      </input>
+      <output id="output_1" label="dmn_point" name="point" typeRef="integer" />
+      <rule id="DecisionRule_1bc1fz1">
+        <inputEntry id="UnaryTests_1r84ym6">
+          <text><![CDATA["Journal"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ue860k">
+          <text><![CDATA["yes"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1js2rer">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0j25dsh">
+        <inputEntry id="UnaryTests_05yhq6u">
+          <text><![CDATA["Journal"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1iwy28z">
+          <text><![CDATA["no"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0862oqn">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0uz5vso">
+        <inputEntry id="UnaryTests_0gl3ped">
+          <text><![CDATA["Book"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_005kkay">
+          <text><![CDATA["yes"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pefm00">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1l93r8l">
+        <inputEntry id="UnaryTests_0sawzx3">
+          <text><![CDATA["Book"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11oopwe">
+          <text><![CDATA["no"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l0kwfr">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jc7v4p">
+        <inputEntry id="UnaryTests_1yuwjt4">
+          <text><![CDATA["Presentation"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tofdcs">
+          <text><![CDATA["yes"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ts8oj4">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0pqb9ub">
+        <inputEntry id="UnaryTests_0263gx6">
+          <text><![CDATA["Presentation"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sgj8pn">
+          <text><![CDATA["no"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fz08gr">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ozbt73">
+        <inputEntry id="UnaryTests_0fo0sgo">
+          <text><![CDATA["OnlinePublication"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16awwau">
+          <text><![CDATA["yes","no"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nsbw8z">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05p2r9c">
+        <inputEntry id="UnaryTests_19f74y2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1baze25">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02ivdw8">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
