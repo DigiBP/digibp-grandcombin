@@ -4,7 +4,7 @@
     <extensionElements>
       <biodi:bounds x="156" y="-312" width="180" height="80" />
     </extensionElements>
-    <decisionTable id="decisionTable_1">
+    <decisionTable id="decisionTable_1" hitPolicy="FIRST">
       <input id="input_1" label="Publish" camunda:inputVariable="publisher">
         <inputExpression id="inputExpression_1" typeRef="string">
           <text></text>
@@ -80,6 +80,17 @@
         </inputEntry>
         <outputEntry id="LiteralExpression_0hee1b5">
           <text><![CDATA["1"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03ecfjt">
+        <inputEntry id="UnaryTests_1hbnljv">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0o9m8nl">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1s9okqf">
+          <text><![CDATA["0"]]></text>
         </outputEntry>
       </rule>
     </decisionTable>
