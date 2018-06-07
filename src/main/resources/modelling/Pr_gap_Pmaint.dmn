@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="Definitions_0vbofw2" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="pmaint_gap" name="pmaint_gap">
+    <decisionTable id="decisionTable_1" hitPolicy="FIRST">
+      <input id="input_1" label="pmaint">
+        <inputExpression id="inputExpression_1" typeRef="integer">
+          <text>Pmaint</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0e1nzwc" label="IC-Punkte">
+        <inputExpression id="LiteralExpression_0cotk7a" typeRef="integer">
+          <text>Pubp</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1lrsr8z" label="pensum">
+        <inputExpression id="LiteralExpression_1v39v4a" typeRef="integer">
+          <text>Pensum</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1wj7myh" label="P. Gap" name="gap_text" typeRef="string" />
+      <rule id="DecisionRule_0r6rnes">
+        <inputEntry id="UnaryTests_1vuqi7u">
+          <text><![CDATA[< 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ci1b3b">
+          <text><![CDATA[< 4]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_012f5c1">
+          <text><![CDATA[>= 81]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16okpj1" expressionLanguage="javascript">
+          <text><![CDATA["P. Maint. Punkte: "+(3-Pmaint)+"<br>IC-Punkte: "+(4-Pubp)]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16vun6p">
+        <inputEntry id="UnaryTests_0kfci1a">
+          <text><![CDATA[< 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v6r0xm">
+          <text><![CDATA[>= 4]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ap01wi">
+          <text><![CDATA[>= 81]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kiwjjb" expressionLanguage="javascript">
+          <text><![CDATA["P. Maint. Punkte: "+(3-Pmaint)]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jcwzzz">
+        <inputEntry id="UnaryTests_11o2vv3">
+          <text><![CDATA[>= 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ioh3zp">
+          <text><![CDATA[< 4]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0etggwx">
+          <text><![CDATA[>= 81]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kqski3" expressionLanguage="javascript">
+          <text><![CDATA["IC-Punkte: "+(4-Pubp)]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nryele">
+        <inputEntry id="UnaryTests_19dcuid">
+          <text><![CDATA[< 5]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hfu6la">
+          <text><![CDATA[< 2]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v00f4d">
+          <text>[51..80]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0n5jrs1" expressionLanguage="javascript">
+          <text><![CDATA["P. Maint. Punkte: "+(3-Pmaint)+"<br>IC-Punkte: "+(2-Pubp)]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0gu5q60">
+        <inputEntry id="UnaryTests_1ydrsbi">
+          <text><![CDATA[< 5]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0apmb70">
+          <text><![CDATA[>= 2]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q9jm47">
+          <text>[51..80]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0634uqz" expressionLanguage="javascript">
+          <text><![CDATA["P. Maint. Punkte: "+(3-Pmaint)]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13hl5yx">
+        <inputEntry id="UnaryTests_192j46e">
+          <text><![CDATA[>= 5]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0501oeq">
+          <text><![CDATA[< 2]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12jv672">
+          <text>[51..80]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0v6kv5i" expressionLanguage="javascript">
+          <text><![CDATA["IC-Punkte: "+(2-Pubp)]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0q5cjdb">
+        <inputEntry id="UnaryTests_0b7ff98">
+          <text><![CDATA[< 2]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m45x4z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c2gkzg">
+          <text><![CDATA[<= 50]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1oatj4c" expressionLanguage="javascript">
+          <text><![CDATA["P. Maint. Punkte: "+(2-Pmaint)]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tw80zm">
+        <description>Alles I.O</description>
+        <inputEntry id="UnaryTests_14h3cp6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ry5reb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hcavwb">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0u8k5pz">
+          <text><![CDATA[""]]></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

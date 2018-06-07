@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_0u0gvad" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="gap_noetig" name="gap_noetig">
+    <decisionTable id="decisionTable_1" hitPolicy="FIRST">
+      <input id="input_1" label="Laufender Status" camunda:inputVariable="qs_ls_result">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>qs_ls_result</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0he4dj0">
+          <text><![CDATA["SA","PA","SP","IP","OT"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0vzysjd" label="Entwicklungsstatus" camunda:inputVariable="e_qs">
+        <inputExpression id="LiteralExpression_1sz2psk" typeRef="string">
+          <text>e_qs</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0ai9r5e">
+          <text><![CDATA["SA","PA","SP","IP","OT"]]></text>
+        </inputValues>
+      </input>
+      <output id="output_1" label="Gap_nötig" name="gap_benoetigt" typeRef="boolean" />
+      <rule id="DecisionRule_1656ggw">
+        <inputEntry id="UnaryTests_1373pgs">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0btjgpe">
+          <text><![CDATA["OT"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0yko1bt">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0213v25">
+        <inputEntry id="UnaryTests_1w21nly">
+          <text><![CDATA["SA"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10in92e">
+          <text><![CDATA["PA","SP","IP"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dak94g">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0615v9a">
+        <inputEntry id="UnaryTests_0ps6oqr">
+          <text><![CDATA["PA"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1clsprb">
+          <text><![CDATA["SP","IP"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0pgpwnu">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1lxm3qq">
+        <inputEntry id="UnaryTests_1jimdzt">
+          <text><![CDATA["SP"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zhxp6o">
+          <text><![CDATA["IP"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1lit6jy">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1paqlef">
+        <inputEntry id="UnaryTests_1k58tgd">
+          <text><![CDATA["OT"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_030412o">
+          <text><![CDATA["SA","PA","SP","IP"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0y3npqm">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1yy79qg">
+        <inputEntry id="UnaryTests_0sqgtpg">
+          <text><![CDATA["PA","SP","IP","OT"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m6zh37">
+          <text><![CDATA["SA"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g6airc">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jn9yrk">
+        <inputEntry id="UnaryTests_1a2ng2c">
+          <text><![CDATA["SP","IP","OT"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09hyh8n">
+          <text><![CDATA["PA"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13ye76x">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tlv4sm">
+        <inputEntry id="UnaryTests_14hfi8h">
+          <text><![CDATA["IP","OT"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fxpgfa">
+          <text><![CDATA["SP"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1prp0rd">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0o2o6xa">
+        <inputEntry id="UnaryTests_1b48gwt">
+          <text><![CDATA["OT"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08sezai">
+          <text><![CDATA["IP"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ig5qxa">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cp1x9h">
+        <inputEntry id="UnaryTests_08ya408">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xd94f2">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1bu81l7">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="Definitions_051irrp" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="gap_quali" name="gap_quali">
+    <extensionElements>
+      <biodi:bounds x="150" y="150" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable_1" hitPolicy="FIRST">
+      <input id="input_1" label="Entw.Q.Status">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>e_qs</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0l26dkm">
+          <text><![CDATA["SA","PA","SP","IP","OT"]]></text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1h01qg6" label="Qualifikation">
+        <inputExpression id="LiteralExpression_12y28k5" typeRef="string">
+          <text>Quali</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_155bnii">
+          <text><![CDATA["Habilitation","Doktorat","Tax/Law Expert","Master","Bachelor","Diploma","Andere"]]></text>
+        </inputValues>
+      </input>
+      <output id="output_1" label="Gap" name="gap_q" typeRef="string" />
+      <rule id="DecisionRule_17pfcn9">
+        <inputEntry id="UnaryTests_1egmwc1">
+          <text><![CDATA["SA","PA"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1inupyj">
+          <text><![CDATA["Master","Bachelor","Diploma","Andere"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06mzvcg">
+          <text><![CDATA["Akademische Qualifikation unzureichend: Doktorat erforderlich"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0r3pojb">
+        <inputEntry id="UnaryTests_11qe76r">
+          <text><![CDATA["SP","IP"]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08l846c">
+          <text><![CDATA["Tax/Law Expert","Bachelor","Diploma","Andere"]]></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ce6lhe">
+          <text><![CDATA["Akademische Qualifikation unzureichend: Master erorderlich"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07nqihj">
+        <description>Keine Qualification Gap</description>
+        <inputEntry id="UnaryTests_14rgkis">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sun4wn">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ipetm4">
+          <text><![CDATA[""]]></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

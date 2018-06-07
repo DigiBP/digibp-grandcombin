@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="Definitions_0vbofw2" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="smaint_gap" name="smaint_gap">
+    <extensionElements>
+      <biodi:bounds x="150" y="150" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable_1" hitPolicy="FIRST">
+      <input id="input_1" label="Smaint">
+        <inputExpression id="inputExpression_1" typeRef="integer">
+          <text>Smaint</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0e1nzwc" label="IC-Punkte">
+        <inputExpression id="LiteralExpression_0cotk7a" typeRef="integer">
+          <text>Pubp</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1lrsr8z" label="pensum">
+        <inputExpression id="LiteralExpression_1v39v4a" typeRef="integer">
+          <text>Pensum</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0839hef" label="has_PAC">
+        <inputExpression id="LiteralExpression_1kmaccz" typeRef="boolean">
+          <text>APRJ</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1wj7myh" label="S. Gap" name="gap_text" typeRef="string" />
+      <rule id="DecisionRule_1aqxu7x">
+        <inputEntry id="UnaryTests_0r1hf8o">
+          <text><![CDATA[< 10]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09asn4a">
+          <text><![CDATA[< 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11m13rn">
+          <text><![CDATA[>= 81]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ax4r4r">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mni0zc" expressionLanguage="javascript">
+          <text><![CDATA["S. Maint. Punkte: "+(3-Smaint)+"IC-Punkte: "+(4-Pubp)+"<br>PAC erforderlich"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0r6rnes">
+        <inputEntry id="UnaryTests_1vuqi7u">
+          <text><![CDATA[< 10]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ci1b3b">
+          <text><![CDATA[< 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_012f5c1">
+          <text><![CDATA[>= 81]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gc80mj">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16okpj1" expressionLanguage="javascript">
+          <text><![CDATA["S. Maint. Punkte: "+(3-Smaint)+" IC-Punkte: "+(4-Pubp)]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17eees1">
+        <inputEntry id="UnaryTests_0prnkbd">
+          <text><![CDATA[< 10]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12ja4n8">
+          <text><![CDATA[>= 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03byyl8">
+          <text><![CDATA[>= 81]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rfh4mk">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fiwxi5" expressionLanguage="javascript">
+          <text><![CDATA["S. Maint. Punkte: "+(3-Smaint)]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qwd2pj">
+        <inputEntry id="UnaryTests_05gk505">
+          <text><![CDATA[< 10]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bq8lw5">
+          <text><![CDATA[>= 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kffevn">
+          <text><![CDATA[>= 81]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jf8qpw">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18yae93" expressionLanguage="javascript">
+          <text><![CDATA["PAC erforderlich"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0w1avtt">
+        <inputEntry id="UnaryTests_07nx50k">
+          <text><![CDATA[>= 10]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v4urtm">
+          <text><![CDATA[< 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jxjiow">
+          <text><![CDATA[>= 81]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15i5ii8">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10nbvck" expressionLanguage="javascript">
+          <text><![CDATA["IC-Punkte: "+(7-Pubp)]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1w3rasx">
+        <inputEntry id="UnaryTests_1k13rud">
+          <text><![CDATA[>= 10]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17v2lz6">
+          <text><![CDATA[< 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ndt5pb">
+          <text><![CDATA[>= 81]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ki8ph4">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zrreu1" expressionLanguage="javascript">
+          <text><![CDATA["IC-Punkte: "+(4-Pubp)+"<br>PAC erforderlich"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tw80zm">
+        <description>Alles I.O</description>
+        <inputEntry id="UnaryTests_14h3cp6">
+          <text><![CDATA[>= 10]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ry5reb">
+          <text><![CDATA[>= 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hcavwb">
+          <text><![CDATA[>=81]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0599eh6">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0u8k5pz">
+          <text><![CDATA["PAC erforderlich"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nryele">
+        <inputEntry id="UnaryTests_19dcuid">
+          <text><![CDATA[< 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hfu6la">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v00f4d">
+          <text>[51..80]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mhdf6y">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0n5jrs1" expressionLanguage="javascript">
+          <text><![CDATA["S. Maint. Punkte: "+(7-Smaint)]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0gu5q60">
+        <inputEntry id="UnaryTests_1ydrsbi">
+          <text><![CDATA[< 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0apmb70">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q9jm47">
+          <text>[51..80]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1s4n39c">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0634uqz" expressionLanguage="javascript">
+          <text><![CDATA["S. Maint. Punkte: "+(4-Smaint)+"<br>PAC erforderlich"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nn32k7">
+        <inputEntry id="UnaryTests_1ilorl4">
+          <text><![CDATA[>= 7]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qfc58w">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05r0c6u">
+          <text>[51..80]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13404rn">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hs6hj2">
+          <text><![CDATA["PAC erforderlich"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0q5cjdb">
+        <inputEntry id="UnaryTests_0b7ff98">
+          <text><![CDATA[< 3]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m45x4z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c2gkzg">
+          <text><![CDATA[<= 50]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fwk0py">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1oatj4c">
+          <text><![CDATA["PAC erforderlich"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0iir2lk">
+        <inputEntry id="UnaryTests_1jqpkaf">
+          <text><![CDATA[>= 3]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kpss6h">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tgumv1">
+          <text><![CDATA[<= 50]]></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lr6lil">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13j4huo">
+          <text><![CDATA["PAC erforderlich"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13tjmkt">
+        <inputEntry id="UnaryTests_1kqb7wj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_020roju">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_186hqgz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1waz9vm">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jp0rjx">
+          <text><![CDATA["ok"]]></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07vtx32">
+        <inputEntry id="UnaryTests_0aijk04">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01xw1y3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1id2uk4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j8khat">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qg67j6">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
